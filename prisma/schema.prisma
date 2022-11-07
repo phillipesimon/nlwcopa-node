@@ -21,8 +21,8 @@ model Pool {
   createAt DateTime @default(now())
   ownerID  String?
 
-  participant Participant[]
-  owner       User?         @relation(fields: [ownerID], references: [id])
+  participants Participant[]
+  owner        User?         @relation(fields: [ownerID], references: [id])
 }
 
 model Participant {
@@ -49,11 +49,11 @@ model User {
 }
 
 model Game {
-  id                  String   @id @default(cuid())
-  date                DateTime
-  firstTeamCountCode  String
-  secondTeamCountCode String
-  guesses             Guess[]
+  id                    String   @id @default(cuid())
+  date                  DateTime
+  firstTeamCountryCode  String
+  secondTeamCountryCode String
+  guesses               Guess[]
 }
 
 model Guess {
